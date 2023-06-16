@@ -7,8 +7,8 @@ import { SafeUser } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client";
 import { format } from 'date-fns';
 import Image from "next/image";
-import HeartButton from "../HeartButton";
-import Button from "../Button";
+import HeartButton from "../components/HeartButton";
+import Button from "../components/Button";
 interface ListingCardProps {
   data: Listing;
   reservation?: Reservation;
@@ -93,7 +93,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             ${price}
           </div>
           {!reservation && (
-            <div className="font-light ml-1">
+            <div className="ml-1 font-light">
               night
             </div>
           )}

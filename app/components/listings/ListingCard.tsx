@@ -7,8 +7,9 @@ import { SafeUser } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client";
 import { format } from 'date-fns';
 import Image from "next/image";
-import HeartButton from "../components/HeartButton";
-import Button from "../components/Button";
+import HeartButton from "@/app/components/HeartButton";
+import Button from "@/app/components/Button";
+
 interface ListingCardProps {
   data: Listing;
   reservation?: Reservation;

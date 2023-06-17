@@ -43,6 +43,7 @@ const RegisterModal = () => {
     axios.post('/api/register', data)
     .then(() =>{
       registerModal.onClose()
+      loginModal.onOpen()
       toast.success('Registered successfully')
     })
     .catch((error) => {
@@ -55,7 +56,7 @@ const RegisterModal = () => {
   const toggle = useCallback(() => {
     registerModal.onClose();
     loginModal.onOpen()
-  }, [LoginModal, registerModal])
+  }, [loginModal, registerModal])
 
   const bodyContent = (
     <div className="flex flex-col gap-4">

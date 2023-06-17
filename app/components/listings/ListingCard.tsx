@@ -33,16 +33,14 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   const location = getByValue(data.locationValue);
 
-  const handleCancel = useCallback(() => {
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
 
       if (disabled) {
         return ;
       }
-      onAction?.(actionId);
-    }
-
+    
+    onAction?.(actionId);
   },[onAction, actionId, disabled])
 
   const price = useMemo(() =>{

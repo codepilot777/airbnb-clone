@@ -1,8 +1,9 @@
 import EmptyState from "../components/EmptyState";
 
-import getCurrentUser from "@/actions/getCurrentUser";
-import getListings from "@/actions/getListings";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import getListings from "@/app/actions/getListings";
 import PropertiesClient from "./PropertyClient";
+import ClientOnly from "../components/ClientOnly";
 
 const PropertiesPage = async () => {
   const currentUser = await getCurrentUser();
@@ -12,6 +13,7 @@ const PropertiesPage = async () => {
         title="Not authorized"
         subtitle="Please login"
       />
+
     )
   }
   const listings = await getListings({
@@ -20,17 +22,21 @@ const PropertiesPage = async () => {
 
   if (listings.length ===0 ) {
     return (
-      <EmptyState
-        title="No Properties found"
-        subtitle="Looks like you have no properties"
-      />
+      <ClientOnly>
+        <EmptyState
+          title="No Properties found"
+          subtitle="Looks like you have no properties"
+        />
+      </ClientOnly>
     )
   }
   return (
-    <PropertiesClient 
-      listings={listings}
-      currentUser={currentUser}
-    />
+    <ClientOnly>
+      <PropertiesClient 
+        listings={listings}
+        currentUser={currentUser}
+      />
+    </ClientOnly>
   )
 }
 

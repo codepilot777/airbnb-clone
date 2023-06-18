@@ -25,6 +25,7 @@ export default async function getListings (
       locationValue,
       category
     } = params;
+    
     let query: any = {};
 
     if (userId){

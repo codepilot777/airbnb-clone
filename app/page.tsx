@@ -41,3 +41,5 @@ const Home = async (
 }
 
 export default Home;
+
+export const dynamic = 'force-dynamic';
